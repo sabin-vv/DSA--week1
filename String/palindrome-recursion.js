@@ -1,9 +1,12 @@
-function palindrome(str){
+function palindrome(str) {
   let reverse = ""
-  if(str === "")
+  if (str === "")
     return ""
   reverse = palindrome(str.slice(1)) + str[0]
-  return  reverse
-  
+  return reverse
+
 }
-console.log(palindrome("mom"))
+function funcPalindromee(str) {
+  return palindrome(str) === str
+}
+console.log(funcPalindromee("mom"))

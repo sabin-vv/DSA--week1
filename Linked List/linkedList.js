@@ -76,7 +76,7 @@ class List {
         }
 
     }
-    revoveValue(value) {
+    removeValue(value) {
         if (this.isEmpty()) {
             return null
         } else if (this.head.value === value) {
@@ -134,6 +134,16 @@ class List {
         }
         console.log(listValue)
     }
+    removemiddle(){
+        let start = this.head
+        let end = this.head
+        while(end.next && end.next.next){
+            start = start.next
+            end = end.next.next
+        }
+        let temp = start.next
+        start.next  = temp.next
+    }
 }
 
 let list = new List()
@@ -141,12 +151,17 @@ let list = new List()
 list.prepend(30)
 list.prepend(20)
 list.prepend(10)
-console.log("List size : ", list.getSize())
+// console.log("List size : ", list.getSize())
+// list.print()
+// list.append(40)
+// list.print()
+// list.insert(50, 0)
+// list.print()
+// console.log(list.searchValue(30))
+// list.print()
+// console.log(list.printReverse())
+list.prepend(40)
+list.prepend(50)
 list.print()
-list.append(40)
+list.removemiddle()
 list.print()
-list.insert(50, 0)
-list.print()
-console.log(list.searchValue(30))
-list.print()
-console.log(list.printReverse())
