@@ -137,7 +137,7 @@ class List {
     removemiddle(){
         let start = this.head
         let end = this.head
-        while(end.next && end.next.next){
+        while(end.next && end.next.next.next){
             start = start.next
             end = end.next.next
         }
@@ -148,9 +148,9 @@ class List {
 
 let list = new List()
 
-list.prepend(30)
-list.prepend(20)
-list.prepend(10)
+list.append(10)
+list.append(20)
+list.append(30)
 // console.log("List size : ", list.getSize())
 // list.print()
 // list.append(40)
@@ -160,8 +160,8 @@ list.prepend(10)
 // console.log(list.searchValue(30))
 // list.print()
 // console.log(list.printReverse())
-list.prepend(40)
-list.prepend(50)
+list.append(40)
+list.append(50)
 list.print()
 list.removemiddle()
 list.print()
