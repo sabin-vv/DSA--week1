@@ -123,6 +123,49 @@ class List {
         return str + `${node.value} `
 
     }
+    removemiddle() {
+        let start = this.head
+        let end = this.head
+        let prev = null
+        while (end && end.next) {
+            prev = start
+            start = start.next
+            
+            end = end.next.next
+        }
+        prev.next = start.next
+        
+    }
+
+    reverseLL(curr = this.head, prev = null,) {
+        if (curr === null) {
+            this.head = prev
+            return
+        }
+        let temp = curr.next
+        curr.next = prev
+        prev = curr
+        this.reverseLL(temp, prev)
+
+    }
+    removeDuplicate() {
+        let mySet = new Set()
+        if (this.size === 0)
+            return -1
+        else {
+            let curr = this.head
+            let prev
+            while (curr) {
+                if (mySet.has(curr.value)) {
+                    prev.next = curr.next
+                } else {
+                    mySet.add(curr.value)
+                }
+                prev = curr
+                curr = curr.next
+            }
+        }
+    }
 
     print() {
         if (this.isEmpty()) return console.log("List is empty")
@@ -134,16 +177,7 @@ class List {
         }
         console.log(listValue)
     }
-    removemiddle(){
-        let start = this.head
-        let end = this.head
-        while(end.next && end.next.next.next){
-            start = start.next
-            end = end.next.next
-        }
-        let temp = start.next
-        start.next  = temp.next
-    }
+
 }
 
 let list = new List()
@@ -164,4 +198,8 @@ list.append(40)
 list.append(50)
 list.print()
 list.removemiddle()
+list.print()
+// list.reverseLL()
+// list.print()
+list.removeDuplicate()
 list.print()
