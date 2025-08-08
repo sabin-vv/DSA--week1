@@ -70,6 +70,17 @@ class List {
         }
         this.size++
     }
+    deleteMiddle(){
+        let middle = this.head
+        let end = this.head
+        let prev = null
+        while(end && end.next){
+            end = end.next.next
+            middle = middle.next
+        }
+        prev = middle.prev
+        prev.next = middle.next
+    }
     print() {
         if (this.size === 0)
             return -1
@@ -90,7 +101,10 @@ const list = new List()
 console.log(list.isEmpty())
 list.prepend(10)
 list.prepend(5)
-list.print()
+list.append(15)
 list.append(20)
 list.append(30)
 list.print()
+list.deleteMiddle()
+list.print()
+
